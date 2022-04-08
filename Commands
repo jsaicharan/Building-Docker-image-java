@@ -1,0 +1,19 @@
+#Used VS code to build run and push the image
+
+#First we create the Java program file named Wordcounter.java
+#Similarly created Dockerfile, sai.txt(read by program to count the repeated words)
+
+#The commands for docker will be;
+
+docker pull openjdk        #We first pull the base image
+docker build -t myjavaapp .      #We build a new image named "myjavaapp"
+
+#We can check the images by giving command
+docker images
+
+docker run -dit myjavaapp        #We run the image 
+docker commit 96bb6e3b188c saicharanj/myrepo:new       # 96bb6e3b188c is the ID of Image my-counter
+docker push saicharanj/myrepo:new        #We push the image to docker public repository
+
+#To pull this image use the command
+docker pull saicharanj/myrepo:new        #new is the tag given
